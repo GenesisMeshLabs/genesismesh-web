@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+/*
+ * Theme tokens. Dark is the default and matches the original palette exactly
+ * (ink-* mirror Tailwind's white/zinc values). Light is opt-in through
+ * `data-theme="light"` on <html>, set by the header theme toggle.
+ */
+:root {
+  --background: #070807;
+  --foreground: #f8fafc;
+  --surface: #0d0f0c;
+  --surface-raised: #10120f;
+  --accent: #d9ff61;
+  --accent-dark: #557000;
+  --accent-ink: #d9ff61;
+  --on-accent: oklch(14.1% 0.005 285.823);
+  --ink: #fff;
+  --ink-100: oklch(96.7% 0.001 286.375);
+  --ink-200: oklch(92% 0.004 286.32);
+  --ink-300: oklch(87.1% 0.006 286.286);
+  --ink-400: oklch(70.5% 0.015 286.067);
+  --ink-500: oklch(55.2% 0.016 285.938);
+  --tile: #fff;
+  --panel-light: #f4f5ef;
+  --border-subtle: rgb(255 255 255 / 0.1);
+  --border-accent: rgb(217 255 97 / 0.7);
+  --text-muted: #a1a1aa;
+  --text-soft: #d4d4d8;
+  --radius-control: 0.375rem;
+  --layout-max: 80rem;
+  --hero-scrim-home:
+    radial-gradient(circle at 72% 34%, rgba(217, 255, 97, 0.14), transparent 34%),
+    linear-gradient(90deg, #070807 0%, rgba(7, 8, 7, 0.92) 45%, rgba(7, 8, 7, 0.72) 100%);
+  --hero-scrim-page: linear-gradient(90deg, #070807 0%, rgba(7, 8, 7, 0.94) 48%, rgba(7, 8, 7, 0.62) 100%);
+  --scrollbar-thumb: rgb(255 255 255 / 0.16);
+  --scrollbar-thumb-hover: rgb(255 255 255 / 0.32);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --background: #f4f5ef;
+  --foreground: #0b0d0a;
+  --surface: #ffffff;
+  --surface-raised: #fafbf6;
+  --accent-ink: #4d6600;
+  --ink: #0b0d0a;
+  --ink-100: #1c1f1a;
+  --ink-200: #2a2d27;
+  --ink-300: #3d4139;
+  --ink-400: #565b51;
+  --ink-500: #6f746a;
+  --tile: #e6e9dc;
+  --border-subtle: rgb(11 13 10 / 0.1);
+  --border-accent: rgb(77 102 0 / 0.7);
+  --text-muted: #565b51;
+  --text-soft: #3d4139;
+  --hero-scrim-home:
+    radial-gradient(circle at 72% 34%, rgba(217, 255, 97, 0.3), transparent 38%),
+    linear-gradient(90deg, #f4f5ef 0%, rgba(244, 245, 239, 0.94) 45%, rgba(244, 245, 239, 0.8) 100%);
+  --hero-scrim-page: linear-gradient(90deg, #f4f5ef 0%, rgba(244, 245, 239, 0.95) 48%, rgba(244, 245, 239, 0.72) 100%);
+  --scrollbar-thumb: rgb(11 13 10 / 0.2);
+  --scrollbar-thumb-hover: rgb(11 13 10 / 0.38);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-canvas: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-on-accent: var(--on-accent);
+  --color-ink: var(--ink);
+  --color-ink-100: var(--ink-100);
+  --color-ink-200: var(--ink-200);
+  --color-ink-300: var(--ink-300);
+  --color-ink-400: var(--ink-400);
+  --color-ink-500: var(--ink-500);
+  --color-tile: var(--tile);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* clip, not hidden: hidden turns <body> into a scroll container, which stops position: sticky working. */
+  overflow-x: clip;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+/*
+ * Thin, theme-aware scrollbars across the site. Chrome, Edge and Safari use
+ * the WebKit rules (rounded thumb, no arrow buttons, hover state); Firefox,
+ * which has no WebKit scrollbar styling, uses the standard properties.
+ */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--scrollbar-thumb) padding-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover) padding-box;
+}
+
+*::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-button {
+  display: none;
+  background: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+:root[data-theme="light"] ::selection {
+  color: var(--on-accent);
+}
+
+/* Theme-specific assets, e.g. the reverse logo on dark and the standard logo on light. */
+:root[data-theme="light"] .theme-dark-only,
+:root:not([data-theme="light"]) .theme-light-only {
+  display: none;
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .page-section {
+    @apply mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-[0.2em] text-accent-ink;
+  }
+
+  .page-title {
+    @apply mt-4 max-w-full hyphens-none text-4xl font-semibold text-ink sm:text-5xl;
+  }
+
+  .section-title {
+    @apply mt-4 max-w-full hyphens-none text-3xl font-semibold text-ink sm:text-4xl;
+  }
+
+  .body-lead {
+    @apply mt-5 max-w-full text-lg leading-8 text-ink-300;
+  }
+
+  .muted-copy {
+    @apply text-sm leading-6 text-ink-400;
+  }
+
+  .surface-card {
+    @apply min-w-0 rounded-md border border-ink/10 bg-surface;
+  }
+
+  .soft-card {
+    @apply min-w-0 rounded-md border border-ink/10 bg-ink/[0.04];
+  }
+
+  .link-card {
+    @apply min-w-0 rounded-md border border-ink/10 bg-surface p-6 transition hover:border-accent-ink/70;
+  }
+
+  .icon-tile {
+    @apply flex h-12 w-12 items-center justify-center rounded-md bg-tile text-on-accent transition;
+  }
+
+  .group:hover .icon-tile {
+    background: var(--accent);
+  }
+
+  .icon-tile-accent {
+    @apply flex h-12 w-12 items-center justify-center rounded-md bg-accent text-on-accent;
+  }
+
+  .btn-primary {
+    @apply inline-flex h-12 max-w-full items-center justify-center gap-2 rounded-md bg-accent px-6 text-center text-sm font-bold text-on-accent transition hover:bg-tile;
+  }
+
+  .btn-secondary {
+    @apply inline-flex h-12 max-w-full items-center justify-center gap-2 rounded-md border border-ink/15 bg-ink/10 px-6 text-center text-sm font-bold text-ink transition hover:border-ink/40 hover:bg-ink/15;
+  }
+
+  .btn-accent {
+    @apply inline-flex h-12 max-w-full items-center justify-center gap-2 rounded-md border border-accent-ink/30 bg-accent/10 px-6 text-center text-sm font-bold text-accent-ink transition hover:border-accent-ink/70 hover:bg-accent/15;
+  }
+
+  .hero-scrim-home {
+    background: var(--hero-scrim-home);
+  }
+
+  .hero-scrim-page {
+    background: var(--hero-scrim-page);
+  }
+}
+
+/* How Genesis Mesh Works: relationship edges on the concept map. */
+.hiw-edge {
+  stroke: var(--ink-500);
+  stroke-opacity: 0.55;
+  transition: stroke 300ms ease, stroke-opacity 300ms ease;
+}
+
+.hiw-edge-accent {
+  stroke: var(--accent-ink);
+  stroke-opacity: 0.85;
+}
+
+.hiw-edge-lit {
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 3px color-mix(in oklab, var(--accent) 70%, transparent));
+}
+
+.hiw-flow {
+  stroke: var(--ink-300);
+  stroke-opacity: 0.55;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 0.1 22;
+  animation: hiw-flow 1.6s linear infinite;
+}
+
+.hiw-flow-accent {
+  stroke: var(--accent-ink);
+  stroke-opacity: 1;
+}
+
+.hiw-flow-lit {
+  stroke-width: 3.4;
+  animation-duration: 0.9s;
+}
+
+.hiw-node-lit {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 35%, transparent),
+    0 0 22px -6px color-mix(in oklab, var(--accent) 55%, transparent);
+}
+
+/* A single dot travelling down the mobile story timeline. */
+.hiw-travel {
+  animation: hiw-travel 6s ease-in-out infinite;
+}
+
+@keyframes hiw-flow {
+  to {
+    stroke-dashoffset: -22.1;
+  }
+}
+
+@keyframes hiw-travel {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  to {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiw-flow,
+  .hiw-travel {
+    display: none;
+  }
+}
