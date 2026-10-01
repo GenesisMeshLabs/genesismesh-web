@@ -1,8 +1,11 @@
 # Genesis Mesh Web
 
 The public Genesis Mesh hub for product concepts, SDKs, documentation, videos,
-and articles. This copy is prepared for `www.genesismesh.org`; domain cutover
-and redirects are managed separately.
+and articles. This project is intended for `www.genesismesh.org`.
+
+The separate `site` project serves the multilingual Genesis Mesh landing site at
+`genesismesh.org`. It has its own content and deployment. `site` and `web` are
+both maintained; neither replaces the other.
 
 Routes:
 
