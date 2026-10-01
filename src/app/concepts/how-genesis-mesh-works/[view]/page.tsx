@@ -65,7 +65,7 @@ export default async function HowGenesisMeshWorksViewPage({ params }: Params) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <ConceptIndex view={view} />
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-        <ButtonLink href="/genesismesh/sdks">Build with the SDKs</ButtonLink>
+        <ButtonLink href="/sdks">Build with the SDKs</ButtonLink>
         <ButtonLink href={siteLinks.genesisMeshGlossary} external variant="secondary">
           Open the glossary
         </ButtonLink>

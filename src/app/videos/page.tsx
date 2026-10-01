@@ -15,7 +15,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Genesis Mesh Videos",
   description:
     "Watch Genesis Mesh campaign videos about portable trust, sovereign systems, recognition, revocation, and protocol interoperability.",
-  path: "/genesismesh/videos",
+  path: "/videos",
   imageAlt: "Genesis Mesh videos",
 });
 

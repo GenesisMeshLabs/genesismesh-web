@@ -11,11 +11,12 @@ Routes:
 
 ```text
 www.genesismesh.org/
-www.genesismesh.org/genesismesh
-www.genesismesh.org/genesismesh/sdks
-www.genesismesh.org/genesismesh/docs
-www.genesismesh.org/genesismesh/videos
-www.genesismesh.org/genesismesh/articles
+www.genesismesh.org/overview
+www.genesismesh.org/start-here
+www.genesismesh.org/sdks
+www.genesismesh.org/docs
+www.genesismesh.org/videos
+www.genesismesh.org/articles
 www.genesismesh.org/concepts/how-genesis-mesh-works/foundation
 www.genesismesh.org/concepts/how-genesis-mesh-works/governed-action
 www.genesismesh.org/concepts/how-genesis-mesh-works/full-model

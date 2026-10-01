@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Genesis Mesh Docs",
   description:
     "Documentation entry points for Genesis Mesh protocol concepts, source code, SDKs, and implementation notes.",
-  path: "/genesismesh/docs",
+  path: "/docs",
   imageAlt: "Genesis Mesh documentation",
   twitterDescription: "Documentation entry points for Genesis Mesh protocol concepts and SDKs.",
 });
@@ -31,7 +31,7 @@ const docsCards = [
   },
   {
     title: "SDK repositories",
-    href: "/genesismesh/sdks",
+    href: "/sdks",
     description: "Use the Go, TypeScript, and .NET SDKs as builder entry points.",
     icon: Code2,
   },
@@ -95,7 +95,7 @@ export default function DocsPage() {
             </div>
           </div>
           <Link
-            href="/genesismesh/start-here"
+            href="/start-here"
             className="group flex min-w-0 flex-col justify-between rounded-md border border-accent-ink/25 bg-accent/10 p-6 transition hover:border-accent-ink/70 hover:bg-accent/15"
           >
             <div>

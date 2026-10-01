@@ -28,7 +28,7 @@ export const homeHubContent = {
       "Developer resources, protocols, SDKs, videos, and articles for building portable trust across independent operators.",
     primaryCta: {
       label: "New to Genesis Mesh? Start here",
-      href: "/genesismesh/start-here",
+      href: "/start-here",
     },
     secondaryCta: {
       label: "View on GitHub",
@@ -68,7 +68,7 @@ export const genesisMeshRouteCards: RouteCard[] = [
   {
     eyebrow: "",
     title: "Start here",
-    href: "/genesismesh/start-here",
+    href: "/start-here",
     description: "A short explainer for new visitors.",
     icon: ShieldCheck,
   },
@@ -82,28 +82,28 @@ export const genesisMeshRouteCards: RouteCard[] = [
   {
     eyebrow: "",
     title: "SDKs",
-    href: "/genesismesh/sdks",
+    href: "/sdks",
     description: "Use Genesis Mesh from Go, TypeScript, and .NET.",
     icon: Code2,
   },
   {
     eyebrow: "",
     title: "Docs",
-    href: "/genesismesh/docs",
+    href: "/docs",
     description: "Read protocol notes, source docs, and implementation entry points.",
     icon: BookOpen,
   },
   {
     eyebrow: "",
     title: "Videos",
-    href: "/genesismesh/videos",
+    href: "/videos",
     description: "Watch the current public campaign video library.",
     icon: Play,
   },
   {
     eyebrow: "",
     title: "Articles",
-    href: "/genesismesh/articles",
+    href: "/articles",
     description: "Read long-form campaign writing from Patreon.",
     icon: FileText,
   },

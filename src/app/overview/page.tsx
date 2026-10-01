@@ -12,7 +12,7 @@ import { genesisMeshIntro, genesisMeshRouteCards } from "@/content/pages";
 export const metadata: Metadata = pageMetadata({
   title: seo.title,
   description: seo.description,
-  path: "/genesismesh",
+  path: "/overview",
   imageAlt: "Genesis Mesh portable trust for sovereign systems",
 });
 
@@ -60,7 +60,7 @@ export default function GenesisMeshPage() {
               {genesisMeshIntro.description}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/genesismesh/docs">
+              <ButtonLink href="/docs">
                 Read docs
               </ButtonLink>
               <ButtonLink

@@ -11,7 +11,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Genesis Mesh SDKs",
   description:
     "Genesis Mesh SDKs for Go, TypeScript, and .NET developers integrating portable trust into real systems.",
-  path: "/genesismesh/sdks",
+  path: "/sdks",
   imageAlt: "Genesis Mesh SDKs",
 });
 

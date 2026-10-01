@@ -10,7 +10,7 @@ export const siteConfig = {
 
 export const siteLinks = {
   home: siteConfig.url,
-  genesisMesh: `${siteConfig.url}/genesismesh`,
+  genesisMesh: `${siteConfig.url}/overview`,
   docs: "https://docs.genesismesh.org/",
   genesisMeshGlossary: "https://docs.genesismesh.org/concepts/glossary.html",
   githubOrg: "https://github.com/GenesisMeshLabs",
@@ -33,16 +33,16 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Overview", href: "/genesismesh" },
+  { label: "Overview", href: "/overview" },
   {
     label: "How it works",
     href: "/concepts/how-genesis-mesh-works/foundation",
     activePrefix: "/concepts/how-genesis-mesh-works",
   },
-  { label: "SDKs", href: "/genesismesh/sdks" },
-  { label: "Docs", href: "/genesismesh/docs" },
-  { label: "Videos", href: "/genesismesh/videos" },
-  { label: "Articles", href: "/genesismesh/articles" },
+  { label: "SDKs", href: "/sdks" },
+  { label: "Docs", href: "/docs" },
+  { label: "Videos", href: "/videos" },
+  { label: "Articles", href: "/articles" },
 ];
 
 export type ExternalChannel = {
@@ -81,13 +81,13 @@ export const externalChannels: ExternalChannel[] = [
 
 export const sitemapRoutes = [
   { path: "/", priority: 1 },
-  { path: "/genesismesh", priority: 0.9 },
-  { path: "/genesismesh/start-here", priority: 0.85 },
+  { path: "/overview", priority: 0.9 },
+  { path: "/start-here", priority: 0.85 },
   { path: "/concepts/how-genesis-mesh-works/foundation", priority: 0.85 },
   { path: "/concepts/how-genesis-mesh-works/governed-action", priority: 0.85 },
   { path: "/concepts/how-genesis-mesh-works/full-model", priority: 0.85 },
-  { path: "/genesismesh/sdks", priority: 0.8 },
-  { path: "/genesismesh/docs", priority: 0.8 },
-  { path: "/genesismesh/videos", priority: 0.8 },
-  { path: "/genesismesh/articles", priority: 0.8 },
+  { path: "/sdks", priority: 0.8 },
+  { path: "/docs", priority: 0.8 },
+  { path: "/videos", priority: 0.8 },
+  { path: "/articles", priority: 0.8 },
 ] as const;

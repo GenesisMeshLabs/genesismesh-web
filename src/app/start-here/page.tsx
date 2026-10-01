@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Start Here: Genesis Mesh",
   description:
     "A short introduction to Genesis Mesh, portable trust, sovereign systems, recognition, revocation, and verifiable trust state.",
-  path: "/genesismesh/start-here",
+  path: "/start-here",
   imageAlt: "Start here with Genesis Mesh",
   twitterDescription: "A short introduction to Genesis Mesh and portable trust for sovereign systems.",
 });
@@ -60,7 +60,7 @@ export default function StartHerePage() {
 
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Link
-            href="/genesismesh"
+            href="/overview"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-accent px-6 text-sm font-bold text-on-accent transition hover:bg-tile"
           >
             Explore Genesis Mesh
@@ -71,7 +71,7 @@ export default function StartHerePage() {
             <ArrowRight size={18} aria-hidden="true" />
           </Link>
           <Link
-            href="/genesismesh/docs"
+            href="/docs"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-md border border-ink/15 bg-ink/10 px-6 text-sm font-bold text-ink transition hover:border-accent-ink/70"
           >
             Read docs

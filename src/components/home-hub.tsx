@@ -15,13 +15,13 @@ const featureStrip = [
 const hubCards = [
   {
     title: "Genesis Mesh",
-    href: "/genesismesh",
+    href: "/overview",
     text: "Portable trust infrastructure for sovereign systems, operators, services, and agents.",
     icon: Network,
   },
   {
     title: "Start here",
-    href: "/genesismesh/start-here",
+    href: "/start-here",
     text: "A short explainer for people new to the Genesis Mesh thesis.",
     icon: ShieldCheck,
   },
@@ -33,19 +33,19 @@ const hubCards = [
   },
   {
     title: "SDKs",
-    href: "/genesismesh/sdks",
+    href: "/sdks",
     text: "Go, TypeScript, and .NET client paths for real integration work.",
     icon: Code2,
   },
   {
     title: "Videos",
-    href: "/genesismesh/videos",
+    href: "/videos",
     text: "All public campaign videos from the GenesisMesh Labs YouTube channel.",
     icon: Play,
   },
   {
     title: "Articles",
-    href: "/genesismesh/articles",
+    href: "/articles",
     text: "Long-form campaign articles and founder notes.",
     icon: FileText,
   },

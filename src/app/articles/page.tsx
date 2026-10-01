@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({
   title: "Genesis Mesh Articles",
   description:
     "Genesis Mesh articles and long-form campaign writing on portable trust, sovereign systems, and verifiable trust state.",
-  path: "/genesismesh/articles",
+  path: "/articles",
   imageAlt: "Genesis Mesh articles",
 });
 
