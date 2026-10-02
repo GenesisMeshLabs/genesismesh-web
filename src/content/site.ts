@@ -19,6 +19,8 @@ export const siteLinks = {
   sdkGo: "https://github.com/GenesisMeshLabs/sdk-go",
   sdkTypeScript: "https://github.com/GenesisMeshLabs/sdk-typescript",
   sdkDotnet: "https://github.com/GenesisMeshLabs/sdk-dotnet",
+  sdkRust: "https://github.com/GenesisMeshLabs/sdk-rust",
+  gateway: "https://github.com/GenesisMeshLabs/gateway",
   youtube: "https://www.youtube.com/@GenesisMeshLabs",
   patreon: "https://www.patreon.com/GenesisMeshLabs",
   patreonPosts: "https://www.patreon.com/cw/GenesisMeshLabs/posts",

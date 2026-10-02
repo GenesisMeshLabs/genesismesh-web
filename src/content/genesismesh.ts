@@ -4,6 +4,7 @@ import {
   Cable,
   CircleSlash,
   Code2,
+  Cog,
   KeyRound,
   LockKeyhole,
   Network,
@@ -84,7 +85,31 @@ export const sdkCards: SdkCard[] = [
     description: "C# client for enterprise services and Microsoft-stack integration paths.",
     icon: Code2,
   },
+  {
+    name: "SDK for Rust",
+    language: "Rust",
+    href: siteLinks.sdkRust,
+    repo: "GenesisMeshLabs/sdk-rust",
+    description: "Async client with signed operator requests for Rust services, agents, and tooling.",
+    icon: Cog,
+  },
 ];
+
+export const gateway = {
+  name: "Genesis Mesh Gateway",
+  repo: "GenesisMeshLabs/gateway",
+  href: siteLinks.gateway,
+  title: "Enforce trust at the edge.",
+  description:
+    "A deployable Rust service that verifies signed join certificates in front of your systems. Any language can call it over HTTP, no SDK required.",
+  features: [
+    "Pinned authority keys and live signed revocation lists",
+    "Per-client network scopes, quotas, and OIDC or mutual TLS",
+    "JSON audit trail, Prometheus metrics, and readiness probes",
+  ],
+  choose:
+    "Calling the Network Authority from your own code? Use an SDK. Need verification in front of services in any language, under your own policy? Run the gateway.",
+};
 
 export type Campaign = {
   title: string;
