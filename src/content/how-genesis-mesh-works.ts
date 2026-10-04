@@ -139,6 +139,15 @@ export const howItWorksPage = {
   textIndexTitle: "Explore all concepts as text",
 };
 
+export const whereToStart = {
+  title: "Where to start",
+  steps: [
+    { label: "Read the foundation story", href: `${howItWorksBasePath}/foundation`, external: false },
+    { label: "Follow a governed action", href: `${howItWorksBasePath}/governed-action`, external: false },
+    { label: "Try it on the live mesh", href: "https://mesh.genesismesh.org", external: true },
+  ],
+};
+
 export const fullModelIntro: { lead: string[]; chain: string[] } = {
   lead: [
     "The Foundation explains where trust comes from and how it can extend across participants and organizations.",
