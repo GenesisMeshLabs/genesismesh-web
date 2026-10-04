@@ -32,7 +32,7 @@ const docsCards = [
   {
     title: "SDK repositories",
     href: "/sdks",
-    description: "Use the Go, TypeScript, and .NET SDKs as builder entry points.",
+    description: "Use the Python, Go, TypeScript, .NET, and Rust SDKs as builder entry points.",
     icon: Code2,
   },
 ];

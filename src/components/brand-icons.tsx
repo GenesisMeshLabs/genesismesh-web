@@ -1,7 +1,7 @@
-import { BookOpen } from "lucide-react";
+import { BookOpen, Landmark, RadioTower } from "lucide-react";
 
 type BrandIconProps = {
-  name: "github" | "youtube" | "patreon" | "docs";
+  name: "github" | "youtube" | "patreon" | "docs" | "live" | "thesis";
   className?: string;
 };
 
@@ -28,6 +28,14 @@ export function BrandIcon({ name, className = "h-5 w-5" }: BrandIconProps) {
         <path d="M14.82 2.5c-3.92 0-7.11 3.19-7.11 7.11s3.19 7.1 7.11 7.1 7.1-3.18 7.1-7.1-3.18-7.11-7.1-7.11ZM2.08 21.5h3.48v-19H2.08v19Z" />
       </svg>
     );
+  }
+
+  if (name === "live") {
+    return <RadioTower className={className} aria-hidden="true" />;
+  }
+
+  if (name === "thesis") {
+    return <Landmark className={className} aria-hidden="true" />;
   }
 
   return <BookOpen className={className} aria-hidden="true" />;

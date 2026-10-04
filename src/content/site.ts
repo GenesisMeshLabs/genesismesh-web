@@ -12,6 +12,9 @@ export const siteLinks = {
   home: siteConfig.url,
   genesisMesh: `${siteConfig.url}/overview`,
   docs: "https://docs.genesismesh.org/",
+  docsQuickstart: "https://docs.genesismesh.org/quickstart.html",
+  liveMesh: "https://mesh.genesismesh.org",
+  thesis: "https://genesismesh.org",
   genesisMeshGlossary: "https://docs.genesismesh.org/concepts/glossary.html",
   githubOrg: "https://github.com/GenesisMeshLabs",
   githubCore: "https://github.com/GenesisMeshLabs/genesismesh",
@@ -43,6 +46,7 @@ export const navItems: NavItem[] = [
   },
   { label: "SDKs", href: "/sdks" },
   { label: "Docs", href: "/docs" },
+  { label: "Live mesh", href: "https://mesh.genesismesh.org" },
   { label: "Videos", href: "/videos" },
   { label: "Articles", href: "/articles" },
 ];
@@ -51,7 +55,7 @@ export type ExternalChannel = {
   name: string;
   href: string;
   description: string;
-  icon: "github" | "youtube" | "patreon" | "docs";
+  icon: "github" | "youtube" | "patreon" | "docs" | "live" | "thesis";
 };
 
 export const externalChannels: ExternalChannel[] = [
@@ -78,6 +82,18 @@ export const externalChannels: ExternalChannel[] = [
     href: siteLinks.docs,
     description: "Protocol, SDK, and operator documentation.",
     icon: "docs",
+  },
+  {
+    name: "Live mesh",
+    href: siteLinks.liveMesh,
+    description: "Try portable trust in the browser: demo access and a guided tour.",
+    icon: "live",
+  },
+  {
+    name: "Thesis and proofs",
+    href: siteLinks.thesis,
+    description: "Why a treaty layer for machines, with public, reproducible proofs.",
+    icon: "thesis",
   },
 ];
 

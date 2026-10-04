@@ -27,6 +27,10 @@ export const homeHubContent = {
     description:
       "Developer resources, protocols, SDKs, videos, and articles for building portable trust across independent operators.",
     primaryCta: {
+      label: "Try the live mesh",
+      href: siteLinks.liveMesh,
+    },
+    startCta: {
       label: "New to Genesis Mesh? Start here",
       href: "/start-here",
     },
@@ -83,7 +87,7 @@ export const genesisMeshRouteCards: RouteCard[] = [
     eyebrow: "",
     title: "SDKs",
     href: "/sdks",
-    description: "Use Genesis Mesh from Go, TypeScript, and .NET.",
+    description: "Use Genesis Mesh from Python, Go, TypeScript, .NET, and Rust.",
     icon: Code2,
   },
   {
@@ -148,6 +152,37 @@ export const startHerePoints = [
   "Each operator keeps control of its own keys, recognition, revocation, and policies.",
   "SDKs and protocol docs make the same trust model usable from real systems.",
 ];
+
+export const startHerePaths = {
+  eyebrow: "Choose your path",
+  title: "Try it, run it, or build on it.",
+  paths: [
+    {
+      who: "Curious",
+      title: "Try the live mesh",
+      description:
+        "Open mesh.genesismesh.org, take the guided tour, and use demo access to watch recognition, verification, and revocation happen.",
+      command: null,
+      cta: { label: "Open the live mesh", href: siteLinks.liveMesh },
+    },
+    {
+      who: "Operators",
+      title: "Run your own sovereign",
+      description:
+        "Install the reference implementation and start a local National Authority with its own keys and policy.",
+      command: "pip install genesis-mesh\ngenesis-mesh init\ngenesis-mesh na start",
+      cta: { label: "Follow the quick start", href: siteLinks.docsQuickstart },
+    },
+    {
+      who: "Builders",
+      title: "Build on the mesh",
+      description:
+        "Use the Python, Go, TypeScript, .NET, or Rust SDK to verify trust state and run governed actions from your own systems.",
+      command: null,
+      cta: { label: "Pick an SDK", href: "/sdks" },
+    },
+  ],
+};
 
 export const startHereWorkflow = {
   eyebrow: "How it works",

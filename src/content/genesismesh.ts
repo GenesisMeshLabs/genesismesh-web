@@ -57,16 +57,28 @@ export type SdkCard = {
   href: string;
   repo: string;
   description: string;
+  /** Copyable install line, with the real package name. */
+  install: string;
   icon: LucideIcon;
 };
 
 export const sdkCards: SdkCard[] = [
+  {
+    name: "Python reference",
+    language: "Python",
+    href: siteLinks.githubCore,
+    repo: "GenesisMeshLabs/genesismesh",
+    description: "The reference implementation: Network Authority, CLI and protocol models, from PyPI.",
+    install: "pip install genesis-mesh",
+    icon: TerminalSquare,
+  },
   {
     name: "SDK for Go",
     language: "Go",
     href: siteLinks.sdkGo,
     repo: "GenesisMeshLabs/sdk-go",
     description: "Typed client for builders wiring trust checks into Go services and infrastructure.",
+    install: "go get github.com/GenesisMeshLabs/sdk-go",
     icon: TerminalSquare,
   },
   {
@@ -75,6 +87,7 @@ export const sdkCards: SdkCard[] = [
     href: siteLinks.sdkTypeScript,
     repo: "GenesisMeshLabs/sdk-typescript",
     description: "Client package for web apps, tools, server routes, and developer-facing integrations.",
+    install: "npm install genesis-mesh-sdk",
     icon: Braces,
   },
   {
@@ -83,6 +96,7 @@ export const sdkCards: SdkCard[] = [
     href: siteLinks.sdkDotnet,
     repo: "GenesisMeshLabs/sdk-dotnet",
     description: "C# client for enterprise services and Microsoft-stack integration paths.",
+    install: "dotnet add package genesismesh-sdk-dotnet",
     icon: Code2,
   },
   {
@@ -90,7 +104,8 @@ export const sdkCards: SdkCard[] = [
     language: "Rust",
     href: siteLinks.sdkRust,
     repo: "GenesisMeshLabs/sdk-rust",
-    description: "Async client with signed operator requests for Rust services, agents, and tooling.",
+    description: "Async client with signed operator requests, governed actions and offline evidence verification.",
+    install: 'genesis-mesh-sdk = { git = "https://github.com/GenesisMeshLabs/sdk-rust" }',
     icon: Cog,
   },
 ];
@@ -353,7 +368,7 @@ export const developerProof = [
   },
   {
     label: "SDKs",
-    value: "Go, TypeScript, and .NET clients",
+    value: "Python, Go, TypeScript, .NET, and Rust clients",
     icon: Code2,
   },
 ];

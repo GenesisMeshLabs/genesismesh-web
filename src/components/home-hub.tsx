@@ -34,7 +34,7 @@ const hubCards = [
   {
     title: "SDKs",
     href: "/sdks",
-    text: "Go, TypeScript, and .NET client paths for real integration work.",
+    text: "Python, Go, TypeScript, .NET, and Rust client paths for real integration work.",
     icon: Code2,
   },
   {
@@ -76,7 +76,7 @@ export function HomeHub() {
               {homeHubContent.hero.description}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={homeHubContent.hero.primaryCta.href}>
+              <ButtonLink href={homeHubContent.hero.primaryCta.href} external>
                 {homeHubContent.hero.primaryCta.label}
               </ButtonLink>
               <ButtonLink
@@ -88,6 +88,13 @@ export function HomeHub() {
                 {homeHubContent.hero.secondaryCta.label}
               </ButtonLink>
             </div>
+            <Link
+              href={homeHubContent.hero.startCta.href}
+              className="mt-5 mr-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-ink transition hover:gap-3"
+            >
+              {homeHubContent.hero.startCta.label}
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
             <Link
               href={homeHubContent.hero.exploreCta.href}
               className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-accent-ink transition hover:gap-3"

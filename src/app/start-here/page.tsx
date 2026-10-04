@@ -4,7 +4,13 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageShell } from "@/components/site-shell";
 import { SectionIntro } from "@/components/ui";
 import { pageMetadata } from "@/content/metadata";
-import { howItWorksCta, pageIntros, startHerePoints, startHereWorkflow } from "@/content/pages";
+import {
+  howItWorksCta,
+  pageIntros,
+  startHerePaths,
+  startHerePoints,
+  startHereWorkflow,
+} from "@/content/pages";
 
 export const metadata: Metadata = pageMetadata({
   title: "Start Here: Genesis Mesh",
@@ -29,6 +35,41 @@ export default function StartHerePage() {
             </div>
           ))}
         </div>
+
+        <section className="mt-14 border-t border-ink/10 pt-12">
+          <SectionIntro
+            eyebrow={startHerePaths.eyebrow}
+            title={startHerePaths.title}
+            className="max-w-4xl"
+          />
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {startHerePaths.paths.map((path) => {
+              const external = path.cta.href.startsWith("http");
+              return (
+                <article key={path.title} className="soft-card flex min-w-0 flex-col p-5">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink">
+                    {path.who}
+                  </p>
+                  <h2 className="mt-5 text-xl font-semibold text-ink">{path.title}</h2>
+                  <p className="mt-3 text-sm leading-6 text-ink-400">{path.description}</p>
+                  {path.command ? (
+                    <pre className="mt-4 overflow-x-auto rounded-md border border-ink/10 bg-surface p-3 font-mono text-xs leading-6 text-ink-300">
+                      <code>{path.command}</code>
+                    </pre>
+                  ) : null}
+                  <Link
+                    href={path.cta.href}
+                    {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+                    className="mt-auto inline-flex items-center gap-2 pt-5 text-sm font-bold text-accent-ink hover:underline"
+                  >
+                    {path.cta.label}
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        </section>
 
         <section className="mt-14 border-t border-ink/10 pt-12">
           <SectionIntro

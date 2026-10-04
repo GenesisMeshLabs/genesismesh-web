@@ -33,7 +33,7 @@ export default function SdksPage() {
           </a>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sdkCards.map((sdk) => (
             <a
               key={sdk.href}
@@ -53,6 +53,9 @@ export default function SdksPage() {
               <h2 className="mt-6 text-xl font-semibold text-ink">{sdk.name}</h2>
               <p className="mt-2 font-mono text-xs text-accent-ink">{sdk.repo}</p>
               <p className="mt-3 text-sm leading-6 text-ink-400">{sdk.description}</p>
+              <code className="mt-4 block overflow-x-auto rounded-md bg-ink/10 px-3 py-2 font-mono text-xs text-ink-200">
+                {sdk.install}
+              </code>
               <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-bold text-accent-ink">
                 View repository
                 <ArrowUpRight size={16} aria-hidden="true" />
