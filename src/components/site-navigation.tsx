@@ -14,6 +14,14 @@ function isActivePath(pathname: string, { href, activePrefix }: NavItem) {
   return pathname === href || (activePrefix !== undefined && pathname.startsWith(activePrefix));
 }
 
+function isExternal(href: string) {
+  return href.startsWith("http");
+}
+
+function externalProps(href: string) {
+  return isExternal(href) ? { target: "_blank", rel: "noreferrer" } : {};
+}
+
 export function DesktopNav() {
   const pathname = usePathname();
 
@@ -26,6 +34,7 @@ export function DesktopNav() {
           <Link
             key={item.href}
             href={item.href}
+            {...externalProps(item.href)}
             aria-current={active ? "page" : undefined}
             className={[
               "rounded-md px-3 py-2 transition",
@@ -35,6 +44,9 @@ export function DesktopNav() {
             ].join(" ")}
           >
             {item.label}
+            {isExternal(item.href) ? (
+              <ArrowUpRight className="ml-0.5 inline" size={13} aria-hidden="true" />
+            ) : null}
           </Link>
         );
       })}
@@ -60,6 +72,7 @@ export function MobileNav() {
               <Link
                 key={item.href}
                 href={item.href}
+                {...externalProps(item.href)}
                 aria-current={active ? "page" : undefined}
                 className={[
                   "rounded-md px-3 py-3 text-sm font-semibold transition",
@@ -69,6 +82,9 @@ export function MobileNav() {
                 ].join(" ")}
               >
                 {item.label}
+                {isExternal(item.href) ? (
+                  <ArrowUpRight className="ml-1 inline" size={14} aria-hidden="true" />
+                ) : null}
               </Link>
             );
           })}

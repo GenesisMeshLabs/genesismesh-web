@@ -47,6 +47,7 @@ export const navItems: NavItem[] = [
   { label: "SDKs", href: "/sdks" },
   { label: "Docs", href: "/docs" },
   { label: "Live mesh", href: "https://mesh.genesismesh.org" },
+  { label: "Thesis", href: "https://genesismesh.org" },
   { label: "Videos", href: "/videos" },
   { label: "Articles", href: "/articles" },
 ];

@@ -28,8 +28,8 @@ export default function GenesisMeshPage() {
     codeRepository: siteLinks.githubCore,
     url: siteLinks.genesisMesh,
     sameAs: [siteLinks.githubCore, siteLinks.youtube, siteLinks.patreon],
-    downloadUrl: [siteLinks.sdkGo, siteLinks.sdkTypeScript, siteLinks.sdkDotnet],
-    programmingLanguage: ["Python", "Go", "TypeScript", "C#"],
+    downloadUrl: [siteLinks.sdkGo, siteLinks.sdkTypeScript, siteLinks.sdkDotnet, siteLinks.sdkRust],
+    programmingLanguage: ["Python", "Go", "TypeScript", "C#", "Rust"],
   };
 
   return (
@@ -58,6 +58,17 @@ export default function GenesisMeshPage() {
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-300">
               {genesisMeshIntro.description}
+            </p>
+            <p className="mt-4 max-w-2xl text-base leading-7 text-ink-300">
+              Genesis Mesh is defined as the Treaty Layer for Machines.{" "}
+              <a
+                href={siteLinks.thesis}
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-accent-ink hover:underline"
+              >
+                Read the thesis →
+              </a>
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/docs">
