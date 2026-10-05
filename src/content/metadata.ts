@@ -19,7 +19,10 @@ export function pageMetadata({
   twitterDescription = description,
 }: PageMetadataInput): Metadata {
   return {
-    title,
+    // Page titles already name Genesis Mesh, and the same title is the Open
+    // Graph and Twitter title, so the layout's "%s | Genesis Mesh" template
+    // must not append the name a second time.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: path,
