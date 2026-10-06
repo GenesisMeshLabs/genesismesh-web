@@ -29,15 +29,17 @@ const fallbackVideos: FeedVideo[] = videos.map((video) => ({
   thumbnailUrl: `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`,
 }));
 
+// JSON escapes first, then HTML entities, "&amp;" last: decoding it first
+// turned "&amp;lt;" into "<".
 function decodeEntities(value: string) {
   return value
-    .replace(/&amp;/g, "&")
+    .replace(/\\u002F/g, "/")
+    .replace(/\\u0026/g, "&")
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/\\u002F/g, "/")
-    .replace(/\\u0026/g, "&");
+    .replace(/&amp;/g, "&");
 }
 
 function stripTags(value: string) {
