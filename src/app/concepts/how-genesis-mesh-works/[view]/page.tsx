@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { jsonLdScript } from "@/lib/json-ld";
 import { notFound } from "next/navigation";
 import { ConceptIndex, conceptsForView } from "@/components/how-it-works/concept-index";
 import { ButtonLink } from "@/components/ui";
@@ -62,7 +63,7 @@ export default async function HowGenesisMeshWorksViewPage({ params }: Params) {
         arriving from another page starts at the top, not the bottom.
       */}
       <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-px" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }} />
       <ConceptIndex view={view} />
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <ButtonLink href="/sdks">Build with the SDKs</ButtonLink>

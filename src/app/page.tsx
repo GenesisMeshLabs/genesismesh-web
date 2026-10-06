@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { jsonLdScript } from "@/lib/json-ld";
 import { HomeHub } from "@/components/home-hub";
 import { PageShell } from "@/components/site-shell";
 import { pageMetadata } from "@/content/metadata";
@@ -42,7 +43,7 @@ export default function HomePage() {
     <PageShell>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
       />
       <HomeHub />
     </PageShell>
