@@ -10,7 +10,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Explore Genesis Mesh portable trust through its protocol guides, SDKs, videos, articles, and operator resources.",
   path: "/",
-  imageAlt: "Genesis Mesh portable trust for sovereign systems",
+  imageAlt: "Genesis Mesh developer hub: open infrastructure for sovereign systems",
   twitterTitle: siteConfig.name,
   twitterDescription: "Open infrastructure for sovereign systems.",
 });

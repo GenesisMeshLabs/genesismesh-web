@@ -4,8 +4,9 @@ export const siteConfig = {
   organization: "GenesisMesh Labs",
   description:
     "Portable trust for sovereign systems, with guides, SDKs, and evidence from independent operators.",
-  socialCard: "/images/marketing/social-card.png",
-  socialCardAlt: "Genesis Mesh portable trust for sovereign systems",
+  // Bump `v` when the card changes, so platforms that cache by URL fetch it again.
+  socialCard: "/images/marketing/social-card.png?v=2",
+  socialCardAlt: "Genesis Mesh developer hub: open infrastructure for sovereign systems",
 };
 
 export const siteLinks = {
