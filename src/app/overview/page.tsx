@@ -14,7 +14,7 @@ export const metadata: Metadata = pageMetadata({
   title: seo.title,
   description: seo.description,
   path: "/overview",
-  imageAlt: "Genesis Mesh portable trust for sovereign systems",
+  imageAlt: "Genesis Mesh developer hub: open infrastructure for sovereign systems",
 });
 
 export default function GenesisMeshPage() {
