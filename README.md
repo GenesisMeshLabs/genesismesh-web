@@ -106,7 +106,7 @@ AZURE_OPENAI_DEPLOYMENT    the chat model deployment name
 SMTP_HOST, SMTP_PORT       mail server (port 465 uses TLS, 587 STARTTLS)
 SMTP_USER, SMTP_PASS       mailbox that sends the inquiries
 MAIL_TO                    where inquiries are delivered (defaults to SMTP_USER)
-CHAT_SIGNING_SECRET        signs inquiry summary cards
+CHAT_SIGNING_SECRET        signs inquiry summary cards (required with several instances)
 MAIL_DRY_RUN=1             optional: log inquiries instead of sending them
 ```
 

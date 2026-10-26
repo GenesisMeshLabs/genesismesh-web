@@ -1,6 +1,6 @@
 // Genesis Mesh website assistant: pure helpers shared by the API route and the tests.
 // No "@/" imports here, so `node --test` can load this file directly.
-import { createHash, createHmac, timingSafeEqual } from "node:crypto";
+import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
 
 export const MAX_MESSAGES = 30;
 export const MAX_CHARS = 2000;
@@ -114,9 +114,10 @@ export function cleanInquiry(args: unknown): { inquiry?: Inquiry; error?: string
 }
 
 // Signed summary token: an inquiry can only be sent exactly as the visitor saw it on the card.
-const secret = () =>
-  process.env.CHAT_SIGNING_SECRET ||
-  createHash("sha256").update(`inquiry:${process.env.AZURE_OPENAI_API_KEY ?? ""}`).digest("hex");
+// Without CHAT_SIGNING_SECRET (local development), a random key per process: cards then verify
+// only on the instance that issued them.
+const processKey = randomBytes(32);
+const secret = () => process.env.CHAT_SIGNING_SECRET || processKey;
 const b64 = (s: string) => Buffer.from(s).toString("base64url");
 
 export type SummaryPayload = { i: Inquiry; p: string; t: number };
