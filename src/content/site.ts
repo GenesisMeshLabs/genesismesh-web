@@ -25,6 +25,8 @@ export const siteLinks = {
   sdkDotnet: "https://github.com/GenesisMeshLabs/sdk-dotnet",
   sdkRust: "https://github.com/GenesisMeshLabs/sdk-rust",
   gateway: "https://github.com/GenesisMeshLabs/gateway",
+  mcp: "https://github.com/GenesisMeshLabs/genesismesh-mcp",
+  docsMcp: "https://docs.genesismesh.org/concepts/mcp-server.html",
   youtube: "https://www.youtube.com/@GenesisMeshLabs",
   patreon: "https://www.patreon.com/GenesisMeshLabs",
   patreonPosts: "https://www.patreon.com/cw/GenesisMeshLabs/posts",
