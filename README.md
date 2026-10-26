@@ -81,9 +81,41 @@ Marketing and brand images are served from:
 public/images/
 ```
 
+## Website Assistant
+
+The chat button in the bottom-right corner answers questions about Genesis Mesh
+and forwards inquiries to the team. `POST /api/chat` handles it:
+
+- The model never receives the whole site. It calls a `search_knowledge` tool,
+  which searches chunks built from `src/content` plus a few curated facts in
+  `src/lib/assistant/knowledge.ts`, and answers from the passages it gets back.
+  Content edits reach the assistant on the next deploy.
+- Only Genesis Mesh questions are answered. A separate scope check judges each
+  message alongside the answer, and a reply is shown only when both agree it is
+  on topic; anything else gets a fixed refusal.
+- Inquiries are collected one question at a time and shown on a summary card.
+  Nothing is emailed until the visitor presses "Confirm and send" on that card,
+  whose signed token is checked by the server.
+
+Environment variables (set in Vercel; locally in `.env`, which is not committed):
+
+```text
+AZURE_OPENAI_ENDPOINT      Azure OpenAI resource URL
+AZURE_OPENAI_API_KEY       its key
+AZURE_OPENAI_DEPLOYMENT    the chat model deployment name
+SMTP_HOST, SMTP_PORT       mail server (port 465 uses TLS, 587 STARTTLS)
+SMTP_USER, SMTP_PASS       mailbox that sends the inquiries
+MAIL_TO                    where inquiries are delivered (defaults to SMTP_USER)
+CHAT_SIGNING_SECRET        signs inquiry summary cards
+MAIL_DRY_RUN=1             optional: log inquiries instead of sending them
+```
+
+Variables already set in your shell take precedence over `.env` in `next dev`.
+
 ## Validation
 
 ```bash
 npm run lint
+npm test
 npm run build
 ```
