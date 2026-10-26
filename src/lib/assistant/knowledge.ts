@@ -5,6 +5,8 @@ import { articles, gateway, mcpServer, pillars, sdkCards, videos } from "@/conte
 import { concepts, howItWorksBasePath, stories, type Block } from "@/content/how-genesis-mesh-works";
 import { homeHubContent, pageIntros, startHerePaths, startHerePoints, startHereWorkflow } from "@/content/pages";
 import { externalChannels, siteConfig, siteLinks } from "@/content/site";
+// Refreshed from the core docs before every build (scripts/release-facts.mjs).
+import release from "@/generated/release.json";
 import { buildIndex, type Chunk, type Index } from "./search";
 
 const WWW = siteConfig.url.replace(/\/+$/, "");
@@ -24,7 +26,7 @@ const FACTS: Chunk[] = [
     url: siteLinks.githubCore,
     keywords: "version latest release changelog open source license MIT free",
     text:
-      "The current Genesis Mesh release is 1.8.1 (October 2026): the reference implementation and Network Authority, the TypeScript, Go, .NET and Rust SDKs and the gateway all release at the same version. Genesis Mesh is open source under the MIT license, on GitHub at https://github.com/GenesisMeshLabs. Release notes: https://docs.genesismesh.org/changelog.html",
+      `The current Genesis Mesh release is ${release.version}: the reference implementation and Network Authority, the TypeScript, Go, .NET and Rust SDKs and the gateway all release at the same version. Genesis Mesh is open source under the MIT license, on GitHub at https://github.com/GenesisMeshLabs. Release notes: https://docs.genesismesh.org/changelog.html`,
   },
   {
     id: "fact:install",

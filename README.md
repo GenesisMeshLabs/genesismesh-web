@@ -89,7 +89,10 @@ and forwards inquiries to the team. `POST /api/chat` handles it:
 - The model never receives the whole site. It calls a `search_knowledge` tool,
   which searches chunks built from `src/content` plus a few curated facts in
   `src/lib/assistant/knowledge.ts`, and answers from the passages it gets back.
-  Content edits reach the assistant on the next deploy.
+  Content edits reach the assistant on the next deploy. The current release comes
+  from `src/generated/release.json`, which every build refreshes from the core docs'
+  release facts (`scripts/release-facts.mjs`); Renovate opens a pull request that
+  rebuilds the site when a release is published.
 - Only Genesis Mesh questions are answered. A separate scope check judges each
   message alongside the answer, and a reply is shown only when both agree it is
   on topic; anything else gets a fixed refusal.
