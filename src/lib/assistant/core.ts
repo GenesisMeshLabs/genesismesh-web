@@ -253,6 +253,7 @@ allowed = true when the latest message:
 - asks how Genesis Mesh relates to or compares with another technology or standard;
 - is a greeting, thanks, goodbye, a reaction such as "ok" or "great", asks what the assistant can do, or asks whether it is an AI or a person;
 - wants to contact the Genesis Mesh team or send an inquiry, or answers the assistant's previous question (a name, an email address even if mistyped, an organization, a topic, the message for the team, a choice, yes or no, "skip");
+- is the visitor's message for the team after the assistant asked for it: any message meant for the team is allowed, including feedback about the website or this assistant; only a question or task aimed at the assistant itself and unrelated to Genesis Mesh is not;
 - is a short follow-up that continues the conversation about Genesis Mesh (for example "and in Go?", "show me the command", "where is that documented?");
 - is a short question that, asked on the Genesis Mesh website, most likely means Genesis Mesh even without naming it: its version, releases, price or cost, license, installation, requirements, roadmap, support, available SDKs or languages, a term or acronym from the list below, or how trust, identity, recognition, revocation, verification, policy or evidence work. Examples: "Is there a PHP SDK?", "What is the latest version?", "How much does it cost?", "What is an IBCT?", "Can I self-host it?".
 
