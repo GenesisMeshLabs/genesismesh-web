@@ -42,7 +42,7 @@ export default function StartHerePage() {
             title={startHerePaths.title}
             className="max-w-4xl"
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {startHerePaths.paths.map((path) => {
               const external = path.cta.href.startsWith("http");
               return (

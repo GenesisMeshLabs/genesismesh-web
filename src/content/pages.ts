@@ -169,7 +169,7 @@ export const startHerePaths = {
       who: "Operators",
       title: "Run your own sovereign",
       description:
-        "Install the reference implementation and start a local National Authority with its own keys and policy.",
+        "Install the reference implementation and start a local Network Authority with its own keys and policy.",
       command: "pip install genesis-mesh\ngenesis-mesh init\ngenesis-mesh na start",
       cta: { label: "Follow the quick start", href: siteLinks.docsQuickstart },
     },
@@ -180,6 +180,14 @@ export const startHerePaths = {
         "Use the Python, Go, TypeScript, .NET, or Rust SDK to verify trust state and run governed actions from your own systems.",
       command: null,
       cta: { label: "Pick an SDK", href: "/sdks" },
+    },
+    {
+      who: "AI assistants",
+      title: "Connect an AI assistant",
+      description:
+        "The MCP server gives Claude and other MCP clients the authority's operations and offline verification as tools. Run it beside your own authority, or connect to an operator's server with an approval code.",
+      command: null,
+      cta: { label: "Read the MCP guide", href: siteLinks.docsMcp },
     },
   ],
 };

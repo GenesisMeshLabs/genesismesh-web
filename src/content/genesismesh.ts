@@ -126,6 +126,23 @@ export const gateway = {
     "Calling the Network Authority from your own code? Use an SDK. Need verification in front of services in any language, under your own policy? Run the gateway.",
 };
 
+export const mcpServer = {
+  name: "Genesis Mesh MCP server",
+  repo: "GenesisMeshLabs/genesismesh-mcp",
+  href: siteLinks.mcp,
+  docs: siteLinks.docsMcp,
+  title: "Let an AI assistant work the mesh.",
+  description:
+    "A Model Context Protocol server that gives Claude and other MCP clients the Network Authority's operations, offline verification, and signing as tools, under the keys and scopes its operator configures.",
+  features: [
+    "Every authority operation as a typed tool, scoped by profile",
+    "Local over stdio, or remote with OAuth and approval codes",
+    "Agents enroll their own nodes; private keys never pass through it",
+  ],
+  choose:
+    "Writing the integration yourself? Use an SDK. Want an assistant or agent to inspect, verify, and operate a sovereign under your control? Connect the MCP server.",
+};
+
 export type Campaign = {
   title: string;
   message: string;
