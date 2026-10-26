@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ChatWidget } from "@/components/chat-widget";
 import { themeBootstrapScript } from "@/lib/theme";
 import { siteConfig, siteLinks } from "@/content/site";
 import "./globals.css";
@@ -80,7 +81,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrapScript }} />
       </head>
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        {children}
+        <ChatWidget />
+      </body>
     </html>
   );
 }
