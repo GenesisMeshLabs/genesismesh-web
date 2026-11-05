@@ -235,6 +235,14 @@
       "cancelled",
       "unknown"
     ],
+    "outcomeDescriptions": {
+      "authorized": "The request passed the applicable authorization checks. This does not mean the resource adapter has started the work.",
+      "started": "The resource adapter reports that work has begun. The final result is not yet known; follow the same request ID for updates.",
+      "completed": "The resource adapter reports that the requested work finished. Its outcome and evidence are bound to the request ID; reported completion alone does not prove the result is correct.",
+      "refused": "The request was declined at an authorization or admission boundary. The refusal and its reason belong to the same request ID.",
+      "failed": "The resource adapter reports that work failed. Some effects may already have occurred; inspect the outcome and evidence before deciding what to do next.",
+      "cancelled": "The resource adapter reports that work was cancelled. A cancellation request alone is not confirmation, and cancellation does not undo effects that already occurred."
+    },
     "unknown": "Unknown is a real state: a connection can drop after dispatch. It is resolved by asking about the same request ID, never by dispatching again.",
     "obligations": [
       "Stable request IDs and idempotent dispatch.",

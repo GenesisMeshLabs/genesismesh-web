@@ -92,6 +92,10 @@ export function buildVisionChunks(data: VisionKnowledgeData): Chunk[] {
     [`Outcome states: ${narrative.lifecycle.outcomes.join(", ")}.`, narrative.lifecycle.unknown,
       `Every adapter binds: ${narrative.lifecycle.obligations.join(" ")}`],
     "outcome unknown uncertain execution disconnect retry dispatch request id idempotent cancellation lease");
+  for (const [state, description] of Object.entries({ ...narrative.lifecycle.outcomeDescriptions, unknown: narrative.lifecycle.unknown })) {
+    add(`lifecycle:outcome-${state}`, `Resource outcome: ${state}`, `outcome-${state}`, proposal,
+      [description], `resource outcome state ${state} meaning execution request id`);
+  }
 
   add("status", status.title, "today", current, [status.eyebrow, status.description],
     "current supported today capability review status");

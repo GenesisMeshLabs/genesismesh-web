@@ -349,7 +349,7 @@ html {
   outline-offset: 4px;
 }
 
-.vision-page :is(section, [id^="resource-"], [id^="journey-"], #vision-content) { scroll-margin-top: 6rem; }
+.vision-page :is(section, .vision-panel, #vision-content) { scroll-margin-top: 6rem; }
 .vision-status-table table { width: 100%; border-collapse: collapse; text-align: left; }
 .vision-status-table th, .vision-status-table td { padding: 1.25rem; vertical-align: top; }
 .vision-status-table th { color: var(--ink); font-size: 0.875rem; font-weight: 600; }

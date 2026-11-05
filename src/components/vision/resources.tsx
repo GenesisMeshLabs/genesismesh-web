@@ -11,6 +11,7 @@ const fields = [
 
 export function VisionResources() {
   const life = narrative.lifecycle;
+  const outcomeDescriptions: Record<string, string> = { ...life.outcomeDescriptions, unknown: life.unknown };
   return <VisionSection {...life}>
     <Copy>{life.description}</Copy>
     <p className="vision-badge">Proposed common lifecycle · adapters enforce the resource boundary</p>
@@ -31,11 +32,9 @@ export function VisionResources() {
       </dl>,
     }))} />
     <div className="grid gap-8 lg:grid-cols-2">
-      <div>
-        <h3 className="mb-5 text-lg font-semibold text-ink">Outcome states</h3>
-        <ul className="mb-5 flex flex-wrap gap-2">{life.outcomes.map((state) => <li className={state === "unknown" ? "vision-badge border-accent-ink/50 text-accent-ink" : "vision-badge"} key={state}>{state}</li>)}</ul>
-        <Copy>{life.unknown}</Copy>
-      </div>
+      <VisionExplorer id="outcome" label="Explore outcome states" items={life.outcomes.map((state) => ({
+        id: state, label: state, content: <Copy key={state}>{outcomeDescriptions[state]}</Copy>,
+      }))} />
       <div>
         <h3 className="mb-5 text-lg font-semibold text-ink">Every adapter binds</h3>
         <TextList items={life.obligations} />
