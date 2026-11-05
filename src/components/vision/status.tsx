@@ -1,6 +1,6 @@
 import status from "@/content/vision/status.json";
 import { reviewNotes, visionReview, visionSources as sources } from "@/content/vision/sources";
-import { Copy, SourceLinks, TextList, VisionSection } from "./section";
+import { Copy, SourceLink, SourceLinks, TextList, VisionSection } from "./section";
 
 const rowSources = [sources.treaties, sources.claims, sources.treaties, sources.delegation, sources.grants, sources.oversight, sources.connect];
 
@@ -13,7 +13,7 @@ export function VisionStatus() {
         <caption className="sr-only">Reviewed current capabilities and remaining work, as of {visionReview.displayDate}</caption>
         <thead><tr><th scope="col">Area</th><th scope="col">Supported in core {visionReview.coreVersion} / current integration</th><th scope="col">Not yet / limits</th></tr></thead>
         <tbody>{status.rows.map((row, index) => <tr key={row.area}>
-          <th scope="row"><a className="vision-source" href={rowSources[index].href}>{row.area}<span aria-hidden="true"> ↗</span></a></th>
+          <th scope="row"><SourceLink href={rowSources[index].href}>{row.area}</SourceLink></th>
           <td><span className="vision-mobile-label" aria-hidden="true">Supported</span>{row.supported}</td>
           <td><span className="vision-mobile-label" aria-hidden="true">Not yet / limits</span>{row.remaining}</td>
         </tr>)}</tbody>

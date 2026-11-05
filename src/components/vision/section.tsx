@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { ArrowUpRight } from "lucide-react";
 import type { VisionSource } from "@/content/vision/sources";
 
 export function VisionSection({ id, eyebrow, title, children }: {
@@ -25,12 +26,18 @@ export function TextList({ items }: { items: string[] }) {
   return <ul className="vision-list">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
 }
 
+export function SourceLink({ href, children }: { href: string; children: ReactNode }) {
+  return <a href={href} className="vision-source inline-flex items-baseline gap-1">
+    <span>{children}</span><ArrowUpRight size={16} className="shrink-0 self-center" aria-hidden="true" />
+  </a>;
+}
+
 export function SourceLinks({ sources }: { sources: VisionSource[] }) {
   return (
     <ul aria-label="Supporting sources" className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
       {sources.map((source) => (
         <li key={source.href}>
-          <a href={source.href} className="vision-source">{source.label}<span aria-hidden="true"> ↗</span></a>
+          <SourceLink href={source.href}>{source.label}</SourceLink>
         </li>
       ))}
     </ul>
