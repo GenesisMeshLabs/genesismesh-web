@@ -1,0 +1,44 @@
+{
+  "id": "today",
+  "eyebrow": "Status",
+  "title": "What core supports today, exactly",
+  "description": "Checked against the Genesis Mesh core source at release 1.9.1. The remaining-work column distinguishes proposals from implementation limits.",
+  "rows": [
+    {
+      "area": "Treaty scope",
+      "supported": "Directional, signed and time-limited. Allowed roles are enforced at admission and on every hop of a trust decision; an empty role list admits nothing.",
+      "remaining": "Filtering by claim inside the treaty. The treaty’s claims field is informational."
+    },
+    {
+      "area": "Claims in policy",
+      "supported": "The attestation claim gate checks that a request fact, such as a project, belongs to a list of allowed scalar values in a verified attestation claim.",
+      "remaining": "This gate is a list-membership check, not arbitrary claim-policy evaluation. Cross-authority admission still needs the end-to-end integration below."
+    },
+    {
+      "area": "Trust paths",
+      "supported": "Multi-hop decisions use active, signed treaties only and record the path and hop count.",
+      "remaining": "A limit on path length (RFC-002 rule 3 is open). Requests that name no roles do not restrict the path by role; other trust-decision checks still apply."
+    },
+    {
+      "area": "Delegation",
+      "supported": "Each hop must hold a subset of the parent’s capabilities and may not outlast it; widening is refused.",
+      "remaining": "Parameters, budgets and use counts that narrow along a delegation chain."
+    },
+    {
+      "area": "Grants",
+      "supported": "Use counts, uses per time token, parameter envelopes (allowed values, subsets, numeric ranges), expiry and a revocation feed. Usable offline.",
+      "remaining": "Passing a grant on with narrower limits. Offline holders learn of revocations only at their next feed read. Optional, explicitly configured break-glass fallback exists; the proposed cross-owner flow requires a fail-closed profile without it."
+    },
+    {
+      "area": "Human approval",
+      "supported": "Library and CLI: policy evaluation, an agent-signed request with the proposed action and an expiry, a dual-signed commitment bound to the request digest.",
+      "remaining": "A Network Authority approval route, portable SDK human-oversight workflows, single-use tracking against replay, and a Connect phone approval screen. Other SDK approval features, such as remediation reviews, are separate from this workflow."
+    },
+    {
+      "area": "Connect",
+      "supported": "In development: a home network with shared Spaces, file transfers and configured TCP service sharing across devices and an always-on network computer. Current navigation is Shared, Devices and Settings; technical activity is under Advanced. A general Requests surface remains part of the vision. Physical acceptance and distribution vary by platform.",
+      "remaining": "Agent requests, approvals on the phone, and anything across two owners’ networks."
+    }
+  ],
+  "note": "Available implementations include the Python reference implementation and TypeScript, Go, Rust and .NET SDKs. An unreleased MCP adapter (0.1.0.dev0, pinned to core 1.8.1) exposes core operations as tools. Core 1.9.1 contains 1,069 vectors across 19 conformance suites; SDKs run their supported subsets, not all 1,069. Interoperability includes a signed EdDSA JWT bridge and structural SPIFFE and W3C Verifiable Credential mappings. The SPIFFE mapping does not issue an SVID, and the VC mapping is not a standard Data Integrity proof. Not yet proven: federation in production between separately operated authorities, including a second, independent implementation."
+}

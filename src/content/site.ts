@@ -12,6 +12,7 @@ export const siteConfig = {
 export const siteLinks = {
   home: siteConfig.url,
   genesisMesh: `${siteConfig.url}/overview`,
+  vision: `${siteConfig.url}/vision`,
   docs: "https://docs.genesismesh.org/",
   docsQuickstart: "https://docs.genesismesh.org/quickstart.html",
   liveMesh: "https://mesh.genesismesh.org",
@@ -47,6 +48,7 @@ export const navItems: NavItem[] = [
     href: "/concepts/how-genesis-mesh-works/foundation",
     activePrefix: "/concepts/how-genesis-mesh-works",
   },
+  { label: "Vision", href: "/vision" },
   { label: "SDKs", href: "/sdks" },
   { label: "Docs", href: "/docs" },
   { label: "Live mesh", href: "https://mesh.genesismesh.org" },
@@ -104,6 +106,7 @@ export const externalChannels: ExternalChannel[] = [
 export const sitemapRoutes = [
   { path: "/", priority: 1 },
   { path: "/overview", priority: 0.9 },
+  { path: "/vision", priority: 0.85 },
   { path: "/start-here", priority: 0.85 },
   { path: "/concepts/how-genesis-mesh-works/foundation", priority: 0.85 },
   { path: "/concepts/how-genesis-mesh-works/governed-action", priority: 0.85 },

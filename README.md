@@ -1,7 +1,7 @@
 # Genesis Mesh Web
 
-The public Genesis Mesh hub for product concepts, SDKs, documentation, videos,
-and articles. This project is intended for `www.genesismesh.org`.
+The public Genesis Mesh hub for product concepts, the project vision, SDKs,
+documentation, videos, and articles. This project is intended for `www.genesismesh.org`.
 
 The separate `site` project serves the multilingual Genesis Mesh landing site at
 `genesismesh.org`. It has its own content and deployment. `site` and `web` are
@@ -12,6 +12,7 @@ Routes:
 ```text
 www.genesismesh.org/
 www.genesismesh.org/overview
+www.genesismesh.org/vision
 www.genesismesh.org/start-here
 www.genesismesh.org/sdks
 www.genesismesh.org/docs
@@ -24,6 +25,10 @@ www.genesismesh.org/concepts/how-genesis-mesh-works/full-model
 
 `/concepts/how-genesis-mesh-works` redirects to the Foundation view. Concepts are
 deep-linkable by fragment, e.g. `/foundation#recognition-treaty`.
+
+`/vision` is the maintained Genesis Mesh at Scale explainer. It separates reviewed
+implementation capabilities from proposed resource adapters and cross-owner
+milestones. It is native site content; `/articles` remains the public Patreon index.
 
 This repository is intended to be public. Do not commit local environment files,
 generated screenshots, deployment credentials, or private campaign drafts.
@@ -68,6 +73,15 @@ questions live in one file; the three views are filters over it:
 ```text
 src/content/how-genesis-mesh-works.ts
 ```
+
+The vision narrative, resource lifecycles, capability review, and roadmap live in
+`src/content/vision/`. The page is server-rendered with small interactive sections;
+the complete narrative remains readable without JavaScript. Its review date and
+source revisions are explicit and must not be advanced by the generated release
+number alone. Keep proposed/current status in any assistant retrieval chunks.
+
+Shared page introductions and discovery cards live in `src/content/pages.ts`.
+Navigation, canonical site links, and sitemap routes live in `src/content/site.ts`.
 
 Shared UI sections live in:
 

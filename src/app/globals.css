@@ -296,3 +296,83 @@ html {
     display: none;
   }
 }
+
+/* Vision uses the shared theme tokens; no independent palette or font system. */
+@layer components {
+  .vision-copy {
+    @apply max-w-4xl text-base leading-8 text-ink-300;
+  }
+
+  .vision-badge {
+    @apply inline-flex w-fit rounded-md border border-ink/15 bg-ink/[0.04] px-3 py-1.5 text-xs font-medium leading-5 text-ink-300;
+  }
+
+  .vision-source {
+    @apply font-medium text-accent-ink underline decoration-accent-ink/30 underline-offset-4 hover:decoration-accent-ink;
+  }
+
+  .vision-list {
+    @apply list-disc space-y-3 pl-5 text-sm leading-7 text-ink-300 marker:text-accent-ink;
+  }
+
+  .vision-control {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-ink/15 px-3 py-2 text-sm font-medium text-ink-300 transition hover:border-accent-ink/60 hover:text-ink disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .vision-tab {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-ink/15 bg-surface px-4 py-2 text-sm font-medium text-ink-300 transition hover:border-accent-ink/60;
+  }
+
+  .vision-tab[aria-selected="true"] {
+    @apply border-accent bg-accent text-on-accent;
+  }
+
+  .vision-details > summary {
+    @apply flex min-h-16 cursor-pointer list-none items-center gap-4 p-6 text-base font-semibold text-ink;
+  }
+
+  .vision-details > summary::after {
+    content: "+";
+    @apply ml-auto text-xl font-normal text-accent-ink;
+  }
+
+  .vision-details[open] > summary::after { content: "−"; }
+  .vision-details > summary::-webkit-details-marker { display: none; }
+
+  .vision-skip {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-20 focus:z-50 focus:rounded-md focus:bg-accent focus:p-4 focus:text-on-accent;
+  }
+}
+
+.vision-page :is(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 4px;
+}
+
+.vision-page :is(section, [id^="resource-"], [id^="journey-"], #vision-content) { scroll-margin-top: 6rem; }
+.vision-status-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.vision-status-table th, .vision-status-table td { padding: 1.25rem; vertical-align: top; }
+.vision-status-table th { color: var(--ink); font-size: 0.875rem; font-weight: 600; }
+.vision-status-table thead { background: var(--surface-raised); }
+.vision-status-table tbody tr { border-top: 1px solid var(--border-subtle); }
+.vision-status-table td { width: 41%; color: var(--ink-300); font-size: 0.875rem; line-height: 1.75; }
+.vision-mobile-label { display: none; }
+
+@media (max-width: 639px) {
+  .vision-status-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .vision-status-table tbody, .vision-status-table tr, .vision-status-table td, .vision-status-table th { display: block; width: 100%; }
+  .vision-status-table th { padding-bottom: 0.5rem; }
+  .vision-status-table td { padding-top: 0.75rem; }
+  .vision-mobile-label { display: block; margin-bottom: 0.35rem; color: var(--ink-400); font-size: 0.75rem; font-weight: 600; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .vision-page * { transition: none !important; }
+}
+
+@media print {
+  .vision-controls, .vision-section-nav { display: none !important; }
+  .vision-panel[hidden] { display: block !important; }
+  .vision-details::details-content { content-visibility: visible; }
+}

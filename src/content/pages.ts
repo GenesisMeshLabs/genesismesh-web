@@ -1,6 +1,7 @@
-import { BookOpen, Code2, FileText, Play, ShieldCheck, Waypoints } from "lucide-react";
+import { BookOpen, Code2, Compass, FileText, Play, ShieldCheck, Waypoints } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { siteLinks } from "@/content/site";
+import visionIntroContent from "@/content/vision/intro.json";
 
 export type PageIntro = {
   eyebrow: string;
@@ -18,6 +19,16 @@ export const howItWorksCta = {
   href: "/concepts/how-genesis-mesh-works/foundation",
   description: "An interactive map of the foundation, a governed action, and how they connect.",
   icon: Waypoints,
+};
+
+export const visionIntro: PageIntro = visionIntroContent;
+
+export const visionCta = {
+  title: "Genesis Mesh at scale",
+  href: "/vision",
+  description:
+    "A vision for governed access across owners, with resource examples, current capabilities, and proposed milestones.",
+  icon: Compass,
 };
 
 export const homeHubContent = {
@@ -82,6 +93,10 @@ export const genesisMeshRouteCards: RouteCard[] = [
     href: howItWorksCta.href,
     description: howItWorksCta.description,
     icon: howItWorksCta.icon,
+  },
+  {
+    eyebrow: "",
+    ...visionCta,
   },
   {
     eyebrow: "",

@@ -5,9 +5,17 @@ import { articles, gateway, mcpServer, pillars, sdkCards, videos } from "@/conte
 import { concepts, howItWorksBasePath, stories, type Block } from "@/content/how-genesis-mesh-works";
 import { homeHubContent, pageIntros, startHerePaths, startHerePoints, startHereWorkflow } from "@/content/pages";
 import { externalChannels, siteConfig, siteLinks } from "@/content/site";
+import visionNarrative from "@/content/vision/narrative.json";
+import visionResources from "@/content/vision/resources.json";
+import visionStatus from "@/content/vision/status.json";
+import visionMilestone from "@/content/vision/milestone.json";
+import visionRoadmap from "@/content/vision/roadmap.json";
+import visionIntro from "@/content/vision/intro.json";
+import { reviewNotes, visionReview, visionSources } from "@/content/vision/sources";
 // Refreshed from the core docs before every build (scripts/release-facts.mjs).
 import release from "@/generated/release.json";
 import { buildIndex, type Chunk, type Index } from "./search";
+import { buildVisionChunks } from "./vision-knowledge";
 
 const WWW = siteConfig.url.replace(/\/+$/, "");
 const page = (path: string) => `${WWW}${path}`;
@@ -50,7 +58,7 @@ const FACTS: Chunk[] = [
     url: WWW,
     keywords: "website marketing landing docs documentation hub thesis where links",
     text:
-      "www.genesismesh.org is the hub for concepts, SDKs, docs, videos and articles. genesismesh.org is the multilingual landing site with the thesis. docs.genesismesh.org is the documentation: quick start, concepts, SDK guides, operator runbooks and API reference. mesh.genesismesh.org is the live mesh. Source code is on GitHub at https://github.com/GenesisMeshLabs.",
+      `www.genesismesh.org is the hub for concepts, SDKs, docs, videos and articles. ${siteLinks.vision} is the maintained vision, with reviewed capabilities distinguished from proposed cross-owner workflows and resource adapters. genesismesh.org is the multilingual landing site with the thesis. docs.genesismesh.org is the documentation: quick start, concepts, SDK guides, operator runbooks and API reference. mesh.genesismesh.org is the live mesh. Source code is on GitHub at https://github.com/GenesisMeshLabs.`,
   },
   {
     id: "fact:mcp-live",
@@ -101,7 +109,18 @@ const FACTS: Chunk[] = [
 ];
 
 function build(): Chunk[] {
-  const chunks: Chunk[] = [...FACTS];
+  const chunks: Chunk[] = [...FACTS, ...buildVisionChunks({
+    url: siteLinks.vision,
+    review: visionReview,
+    reviewNotes,
+    sources: visionSources,
+    intro: visionIntro,
+    narrative: visionNarrative,
+    resources: visionResources,
+    status: visionStatus,
+    milestone: visionMilestone,
+    roadmap: visionRoadmap,
+  })];
   chunks.push({
     id: "page:home",
     title: homeHubContent.hero.title,
@@ -237,7 +256,10 @@ export const SCOPE_TERMS = [
   "trust API",
   "SDK",
   "thesis and proofs (genesismesh.org)",
-  "hub, docs, videos, articles, start here, how it works (site sections)",
+  "Genesis Mesh vision and Connect roadmap",
+  "Connect Spaces, Requests and Activity",
+  "Genesis Mesh cross-owner milestone and proposed resource adapters",
+  "hub, docs, videos, articles, vision, start here, how it works (site sections)",
 ].join(", ");
 
 /** The few links the assistant may always give without searching. */
@@ -245,6 +267,7 @@ export const ESSENTIAL_LINKS = [
   `Hub: ${WWW}`,
   `Start here: ${page("/start-here")}`,
   `How it works: ${page(`${howItWorksBasePath}/foundation`)}`,
+  `Vision and reviewed roadmap: ${siteLinks.vision}`,
   `SDKs: ${page("/sdks")}`,
   `Docs: ${siteLinks.docs}`,
   `Quick start: ${siteLinks.docsQuickstart}`,

@@ -1,0 +1,53 @@
+{
+  "id": "milestone",
+  "eyebrow": "Proposal · The decisive journey",
+  "title": "The first cross-owner milestone: one document, two owners",
+  "description": "The smallest honest proof uses direct recognition and one resource. A real, independent owner takes part; a second network run by the same person does not count.",
+  "steps": [
+    {
+      "title": "Setup",
+      "description": "Owner B issues a direct, time-limited treaty that recognizes owner A’s authority for the role “agent”. B’s policy for one Space allows recognized agents to read one named document and requires B’s approval for every read."
+    },
+    {
+      "title": "Request",
+      "description": "A’s research agent, enrolled in A’s network with its own key and an attestation naming A as its owner, requests that document with a stable request ID."
+    },
+    {
+      "title": "Authorize",
+      "description": "B’s authority verifies the attestation against A’s published keys, the treaty, the role and B’s policy. The result requires approval."
+    },
+    {
+      "title": "Approve",
+      "description": "B’s phone shows the requester, its owner, the exact document and version, the action and the expiry. B approves with the phone’s device key. The approval binds that request and can be used once."
+    },
+    {
+      "title": "Enforce",
+      "description": "B’s device serves exactly that document version once, and records the outcome against the request ID."
+    },
+    {
+      "title": "Verify",
+      "description": "A and B each verify the evidence that concerns them using only public keys: B holds A’s signed request, A holds B’s signed decision and outcome."
+    },
+    {
+      "title": "Withdraw",
+      "description": "B withdraws the treaty, or A revokes the agent’s attestation. The next attempt is refused with the reason."
+    }
+  ],
+  "refusals": [
+    "An attestation from the wrong issuer, or under an expired treaty.",
+    "Overbroad delegation: another document, another action, or a role A never attested.",
+    "Replay of a used approval, or of the whole request.",
+    "An approval used after its expiry.",
+    "B’s authority unavailable: the request is refused as busy, and never falls back to approval or emergency access.",
+    "Uncertain execution: a connection lost after serving is resolved by request ID, without a second dispatch."
+  ],
+  "needs": [
+    "Agents as members of a Connect network, with their own keys and an owner link.",
+    "Human approval reachable from Connect, with single-use tracking, and verification on devices without the Python runtime.",
+    "A phone screen that shows and signs the exact request.",
+    "Discovery and reachability between two networks, for both connection settings.",
+    "Issuing and withdrawing a treaty from Connect in plain terms.",
+    "A receipt format that both owners can verify."
+  ],
+  "exit": "Done when two independently operated networks complete the journey over the internet, every case on the left is refused or resolved as stated, and both owners can verify their evidence without trusting the other’s app."
+}

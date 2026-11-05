@@ -1,0 +1,44 @@
+{
+  "id": "path",
+  "eyebrow": "Proposal · The staged path",
+  "title": "From a home network to desktops and compute",
+  "description": "Desktops and compute are named expansion tracks with prerequisites, not exclusions. Each stage reuses what the one before it proved.",
+  "stages": [
+    {
+      "title": "Your own network",
+      "status": "Connect, in development",
+      "description": "Files and Spaces across your own devices, family and friends. Immediate value with one owner.",
+      "needs": ""
+    },
+    {
+      "title": "One agent, one owner",
+      "status": "Connect roadmap",
+      "description": "An agent with its own identity requests one document in its owner’s network, and the owner approves the exact request on a phone.",
+      "needs": "agent membership, approval reachable from Connect with single-use tracking, the phone approval screen."
+    },
+    {
+      "title": "Two owners, one document",
+      "status": "First cross-owner milestone",
+      "description": "The journey above, between two independent owners under a direct treaty.",
+      "needs": "cross-network discovery and reachability, treaty issuance and withdrawal in Connect, a shared receipt format."
+    },
+    {
+      "title": "A bounded compute job",
+      "status": "Expansion track · compute",
+      "description": "The second real adapter: a job runner on an existing container sandbox. Approved image digests, input and output digests, no network egress, CPU, memory and time limits, a cancellable lease, and outcome states including unknown. CPU jobs first; GPU partitioning only with a runtime that supports it safely.",
+      "needs": "idempotent dispatch by request ID, leases and cancellation, outcome records, host isolation reviewed on its own terms."
+    },
+    {
+      "title": "The adapter interface, then remote desktops",
+      "status": "Expansion track · desktops",
+      "description": "Extract the shared interface from the document and job adapters. Then govern an existing remote-desktop gateway: a session lease tied to the attestation and treaty, clipboard and file-transfer policy enforced by the gateway, and the session ended when renewal is refused.",
+      "needs": "two proven adapters, lease renewal that rechecks authorization, a desktop gateway integration."
+    },
+    {
+      "title": "Organizations, agent services and scale",
+      "status": "Direction",
+      "description": "Attestations from company identity providers, cross-organization agent services behind tool gateways, a provider’s scheduler behind a governed adapter, managed operators, and a separate commercial layer for metering and settlement.",
+      "needs": "a limit on recognition path length before any multi-hop use, a decision on claim filtering in treaties, budgets that narrow along delegation, approval as an authority service, and measured throughput, revocation freshness and abuse controls."
+    }
+  ]
+}
