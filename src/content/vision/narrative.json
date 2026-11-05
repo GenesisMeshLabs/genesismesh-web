@@ -1,0 +1,316 @@
+{
+  "hero": {
+    "note": "This page describes a direction to build toward. “What core supports today” and “The first cross-owner milestone” separate shipped functionality from proposals.",
+    "parties": [
+      {
+        "label": "Person",
+        "name": "Freelancer’s authority",
+        "members": [
+          "phone",
+          "laptop",
+          "build agent"
+        ]
+      },
+      {
+        "label": "Business",
+        "name": "Engineering company",
+        "members": [
+          "staff",
+          "contractors",
+          "desktops",
+          "agents"
+        ]
+      },
+      {
+        "label": "Provider",
+        "name": "Compute provider",
+        "members": [
+          "job runner",
+          "storage",
+          "data service"
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "label": "Attestation",
+        "description": "company: contractor, project Atlas"
+      },
+      {
+        "label": "Treaty",
+        "description": "provider recognizes the contractor role"
+      }
+    ],
+    "trace": [
+      "The build agent, with its own identity linked to the freelancer, submits one job.",
+      "The provider verifies the attestation and its treaty. Its own policy requires project Atlas and decides.",
+      "The job runner admits the job and enforces its limits.",
+      "Each party verifies the evidence that concerns it."
+    ],
+    "caption": "Each party runs its own authority. The provider’s treaty is directional: it accepts the company’s attestations for one role, until a date. It does not make the company’s network trusted, and it opens no resource by itself. The provider’s policy and runtime limits decide every job. This scenario is a direction: agent delegation with budgets and a job-runner adapter are not built yet."
+  },
+  "landscape": {
+    "id": "landscape",
+    "eyebrow": "The landscape",
+    "title": "Access federation exists. Using its strongest properties together is still hard.",
+    "paragraphs": [
+      "OIDC and SAML federate logins across organizations. OAuth scopes limit what a token may do. PKI and mutual TLS identify machines. Capability systems attenuate tokens. Overlays such as OpenZiti and infrastructure access gateways put policy in front of services. Each solves part of the problem well, usually inside one administrative domain or through one provider.",
+      "Genesis Mesh makes four properties usable together, by ordinary people as well as platform teams:",
+      "Recognition reduces duplicated onboarding.",
+      "It does not remove enrollment, identity linkage, contracts or the resource owner’s decision. A membership attestation is its issuer’s statement. It proves nothing about physical identity, licensing or behavior beyond what the issuer is accountable for."
+    ],
+    "cards": [
+      {
+        "title": "Owner-controlled recognition",
+        "description": "Each authority decides, in a signed and time-limited treaty, which roles of which other authority it accepts."
+      },
+      {
+        "title": "Application-level authorization",
+        "description": "The resource owner’s policy decides each supported operation, using roles, claims, time windows and approvals."
+      },
+      {
+        "title": "Delegation that only narrows",
+        "description": "A right passed to someone else, such as an agent, can lose capabilities and time at each hop, never gain them."
+      },
+      {
+        "title": "Evidence each party verifies",
+        "description": "Signed records of requests, decisions and outcomes, checked offline against each authority’s published keys."
+      }
+    ]
+  },
+  "blocks": {
+    "id": "blocks",
+    "eyebrow": "Building blocks",
+    "title": "The trust primitives in Genesis Mesh 1.x",
+    "paragraphs": [
+      "All of these ship in the core library today (release 1.9.1). Their exact limits are listed under “What core supports today”."
+    ],
+    "cards": [
+      {
+        "title": "Network Authority",
+        "description": "Admits members to a network and signs its decisions. A person, family, company or community can run one, or use a managed one."
+      },
+      {
+        "title": "Membership attestation",
+        "description": "A signed statement that a person, device or agent belongs to an authority, with roles and claims, until a date."
+      },
+      {
+        "title": "Recognition treaty",
+        "description": "A directional statement: the issuing authority accepts another authority’s attestations for listed roles, until a date. An empty role list admits nothing."
+      },
+      {
+        "title": "Boundary policy",
+        "description": "The resource owner’s rules for each operation. Gates can check attestation roles and claims, time windows and other context."
+      },
+      {
+        "title": "Delegation",
+        "description": "Passing part of an agreement’s rights to another party. Each hop may keep or narrow its parent’s capabilities and may not outlast its parent."
+      },
+      {
+        "title": "Grant",
+        "description": "Permission issued in advance, with use counts and parameter limits, so a device can act while disconnected. It learns of revocations at its next feed read."
+      },
+      {
+        "title": "Human approval",
+        "description": "An agent’s signed request and a person’s countersignature, bound to the proposed action and an expiry. Library and CLI only so far."
+      },
+      {
+        "title": "Evidence",
+        "description": "Signed records of decisions and outcomes. A record proves what its signer stated, and who signed it. It does not prove the statement true."
+      }
+    ]
+  },
+  "scale": {
+    "id": "scale",
+    "eyebrow": "Millions of participants",
+    "title": "Many independent authorities, administered like email",
+    "paragraphs": [
+      "Email shows that independent operators of every size can administer their own domains under one protocol. The analogy explains independent administration. It does not prove that Genesis Mesh scales; that has to be measured."
+    ],
+    "cards": [
+      {
+        "title": "Personal",
+        "description": "A phone and a small always-on node. Connect’s home network starts here."
+      },
+      {
+        "title": "Managed operators",
+        "description": "For people and small businesses who don’t want to run anything. The protocol already defines a managing-partner role; custody and administrative powers must stay visible."
+      },
+      {
+        "title": "Enterprises",
+        "description": "Membership comes from the company’s existing identity provider, such as Entra ID or Okta. Genesis Mesh connects organizations and leaves each directory in place."
+      },
+      {
+        "title": "Communities",
+        "description": "Universities, professional bodies and open-source foundations, attesting what they are accountable for, such as membership of a lab."
+      }
+    ],
+    "requirementsTitle": "What millions of participants require",
+    "requirements": [
+      "Measured authority throughput and availability.",
+      "Bounded evaluation of recognition paths.",
+      "Isolation between tenants of a managed operator.",
+      "Discovery that keeps membership graphs private.",
+      "Stated revocation freshness, especially offline.",
+      "Abuse controls for requests from unknown authorities.",
+      "Recovery that ordinary people can complete."
+    ],
+    "caveat": "The proposed design avoids global discovery, a global trust graph, a central approver and unbounded recognition chains. A configurable recognition-path limit is still open in core. Avoiding these dependencies is necessary for scale, not proof of it.",
+    "precedent": {
+      "label": "Precedent",
+      "title": "Science federates membership this way",
+      "description": "The Worldwide LHC Computing Grid federates computing centres in dozens of countries. Researchers reach them through membership in virtual organizations, attested once and accepted by each site under its own policy. Genesis Mesh aims to make that pattern available to everyone, and to agents."
+    }
+  },
+  "effects": {
+    "id": "effects",
+    "eyebrow": "Growth",
+    "title": "Three network effects",
+    "paragraphs": [
+      "Directories and marketplaces help people find offers. Appearing in one grants nothing, and any of them can be replaced."
+    ],
+    "cards": [
+      {
+        "title": "Relationships",
+        "description": "One treaty lets a provider offer its resources to another authority’s members for the recognized roles, wherever its own policy allows, with no new account system for each app."
+      },
+      {
+        "title": "Adapters",
+        "description": "An adapter for a desktop gateway, a job runner or an agent’s tools is written once and used by every authority that adopts it."
+      },
+      {
+        "title": "Credentials",
+        "description": "An employer’s attestation can be accepted by every provider that recognizes the employer for that role. Each new recognition makes existing attestations more useful."
+      }
+    ]
+  },
+  "lifecycle": {
+    "id": "lifecycle",
+    "eyebrow": "Every resource",
+    "title": "One lifecycle, whatever is being shared",
+    "description": "Files, desktops, agents and compute look like separate products. Each use follows the same steps. Genesis Mesh supplies identity, authorization and evidence. An adapter that understands the resource admits and enforces. Provider-side policy and runtime limits are authoritative; the client app is never the enforcement boundary.",
+    "steps": [
+      {
+        "title": "Discover",
+        "description": "Find an offer. Listing it grants nothing.",
+        "owner": "Discovery service, replaceable"
+      },
+      {
+        "title": "Request",
+        "description": "A stable request ID, the requester’s identity and the exact scope.",
+        "owner": "Genesis Mesh"
+      },
+      {
+        "title": "Authenticate and authorize",
+        "description": "Attestation, treaty, delegation and policy, plus approval where required.",
+        "owner": "Genesis Mesh"
+      },
+      {
+        "title": "Reserve or admit",
+        "description": "Capacity, a slot or a lease, when the resource needs one.",
+        "owner": "Resource adapter"
+      },
+      {
+        "title": "Enforce",
+        "description": "The adapter executes only the authorized scope.",
+        "owner": "Resource adapter"
+      },
+      {
+        "title": "Report outcome",
+        "description": "One of the outcome states below, bound to the request ID.",
+        "owner": "Resource adapter"
+      },
+      {
+        "title": "Verify evidence",
+        "description": "Each party checks the records that concern it.",
+        "owner": "Genesis Mesh"
+      }
+    ],
+    "outcomes": [
+      "authorized",
+      "started",
+      "completed",
+      "refused",
+      "failed",
+      "cancelled",
+      "unknown"
+    ],
+    "unknown": "Unknown is a real state: a connection can drop after dispatch. It is resolved by asking about the same request ID, never by dispatching again.",
+    "obligations": [
+      "Stable request IDs and idempotent dispatch.",
+      "Digests of artifacts and configuration.",
+      "The identity and policy each decision used.",
+      "Cancellation and lease renewal for long sessions.",
+      "Bounded accounting of what was used.",
+      "The capability version both sides support."
+    ],
+    "note": "The shared adapter interface is extracted only after two real adapters prove it, not designed up front."
+  },
+  "agents": {
+    "id": "agents",
+    "eyebrow": "Why now",
+    "title": "Agents need their own identities and permissions that cross organizations",
+    "paragraphs": [
+      "Many agents today act with a person’s session or token. Forwarding a person’s session is not enough once agents act across organizations. Each agent needs:",
+      "Agents take two distinct roles. Agent as resource: an owner exposes selected abilities of a specialist agent. Agent as caller: a visiting agent receives a narrow permission to use someone else’s resources. They compose: a research agent can ask another organization’s analysis agent for a task, which then requests compute from a provider both recognize.",
+      "Existing identity providers remain the source of membership for people. Declared attestations about a model, prompt or tool record what an operator states. They are not hardware-backed proof of what actually ran."
+    ],
+    "needs": [
+      "Its own key and attestation, with an explicit link to an accountable owner.",
+      "Delegation from that owner that can only narrow.",
+      "Recognition by the organizations it calls.",
+      "A decision for each action, with a person’s approval for the consequential ones.",
+      "Evidence that both sides hold."
+    ],
+    "instruction": {
+      "title": "One instruction, four permissions",
+      "quote": "“Analyze these documents using approved compute. Return the report here. Ask me before sending anything elsewhere.”",
+      "parts": [
+        {
+          "quote": "Analyze these documents",
+          "description": "Read access to named documents, delegated to the agent and no wider."
+        },
+        {
+          "quote": "using approved compute",
+          "description": "Jobs only on providers the owner recognizes, within their limits."
+        },
+        {
+          "quote": "Return the report here",
+          "description": "One fixed destination for the output."
+        },
+        {
+          "quote": "Ask me before sending anything elsewhere",
+          "description": "An approval bound to the exact request and an expiry, usable once, and enforced where the agent’s actions pass, such as its tool gateway or sandbox egress."
+        }
+      ],
+      "note": "Genesis Mesh decides and records each permission. The tool or execution boundary enforces it. No single key carries all four."
+    }
+  },
+  "compute": {
+    "id": "compute",
+    "eyebrow": "Peer-to-peer compute",
+    "title": "Compute, starting inside relationships",
+    "paragraphs": [
+      "Open GPU marketplaces already exist, and trust is hard for them in both directions. Buyers don’t know whose machine runs their job; hosts don’t know what they are running. Genesis Mesh starts where trust already exists:",
+      "Bounded, independent jobs come first: rendering frames, transcription, builds and batch analysis. Genesis Mesh authorizes submissions to existing runtimes and schedulers, such as container sandboxes or a provider’s Ray cluster, through governed adapters. It does not become a scheduler.",
+      "Signed outcome records give both sides a shared starting point for metering. Commercial metering still needs agreed units, trustworthy measurement, replay protection, reconciliation and dispute rules. No token or blockchain is needed for the base architecture."
+    ],
+    "examples": [
+      "A company runs builds on its own idle machines and a partner’s.",
+      "A university consortium pools machines under treaties between its members.",
+      "A family shares a gaming PC’s idle hours for rendering."
+    ],
+    "boundaryTitle": "Boundaries to state plainly",
+    "boundaries": [
+      "Encryption protects data in transit. On an ordinary remote machine the job runs in plaintext, and its administrator may be able to see it.",
+      "Neither recognition nor an encrypted tunnel supplies a sandbox, safe GPU partitioning or egress control. Hosts need strong isolation from foreign workloads.",
+      "Confidential computing is an optional execution profile, verified separately, within a stated threat model. A membership attestation proves nothing about hardware.",
+      "A signed outcome record proves what its signer reported. It does not prove the result correct, the data deleted, or confidentiality during execution."
+    ]
+  },
+  "closing": {
+    "eyebrow": "The proposition",
+    "proposition": "Use resources across people and organizations while each owner keeps control of identity, permission and execution, and each participant can verify the evidence that concerns them.",
+    "date": "November 2026"
+  }
+}

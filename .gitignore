@@ -13,6 +13,7 @@
 # testing
 /coverage
 /screenshots
+/temp/
 
 # next.js
 /.next/

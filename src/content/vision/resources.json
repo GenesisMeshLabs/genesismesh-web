@@ -1,0 +1,100 @@
+[
+  {
+    "id": "agent",
+    "label": "AI agent",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "A specialist agent, such as a supplier’s stock agent. Here the agent is the resource.",
+      "request": "A customer’s purchasing agent, with its own identity linked to its owner, asks for stock levels and places an order. Here the agent is the caller.",
+      "authorize": "The supplier verifies the customer’s attestation and its own treaty. Its policy allows the purchasing role and requires a person’s approval above a set amount.",
+      "admit": "None for a query. An order can hold stock until its approval expires.",
+      "enforce": "The supplier’s tool gateway exposes only the approved operations and data sources.",
+      "outcome": "Completed or refused. If the connection drops, the order is unknown until the same request ID is checked, so no second order is placed.",
+      "evidence": "Each side keeps the signed request, decision, approval and outcome, and verifies the other side’s signatures."
+    }
+  },
+  {
+    "id": "compute",
+    "label": "Compute job",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "A job runner on idle machines, built on an existing container sandbox or scheduler.",
+      "request": "An agent submits one job: a workload image digest, input digests, and CPU, memory and time limits.",
+      "authorize": "The provider’s policy allows approved images from recognized members, within its limits.",
+      "admit": "The runner reserves capacity and returns a lease that the requester can cancel.",
+      "enforce": "The sandbox isolates the job, blocks network egress and stops it at the deadline.",
+      "outcome": "Started, completed, failed, cancelled or unknown. Unknown is resolved by request ID, never by running the job again.",
+      "evidence": "Output digests and the resources the provider reports. Billing needs agreed units and reconciliation on top."
+    }
+  },
+  {
+    "id": "desktop",
+    "label": "Remote desktop",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "A temporary desktop through an existing remote-desktop gateway.",
+      "request": "A contractor asks to open the project desktop for the day.",
+      "authorize": "The company’s policy accepts the contractor agency’s attestation for this project, under its treaty with the agency.",
+      "admit": "A desktop is provisioned and a session lease issued.",
+      "enforce": "The gateway limits clipboard, file transfer and peripherals. Renewal of the lease rechecks the attestation and treaty.",
+      "outcome": "Started, completed, cancelled, or ended when renewal is refused.",
+      "evidence": "Session start, renewals and end, recorded for both sides."
+    }
+  },
+  {
+    "id": "data",
+    "label": "Data",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "Queries over a dataset, instead of copies of it.",
+      "request": "A partner’s analyst asks for regional sales totals.",
+      "authorize": "Only approved query templates on approved datasets are allowed for that partner.",
+      "admit": "None.",
+      "enforce": "The data adapter runs the template and filters the result.",
+      "outcome": "Completed, or refused with the reason.",
+      "evidence": "Each disclosure: who asked, which template, and the digest of the result."
+    }
+  },
+  {
+    "id": "devices",
+    "label": "Devices",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "One machine on a factory floor or in a lab.",
+      "request": "A maintenance vendor asks to run a diagnostic.",
+      "authorize": "The vendor’s technicians are allowed named commands in a set time window.",
+      "admit": "The device reserves a maintenance slot.",
+      "enforce": "The device adapter accepts only those commands. Offline it acts under a grant with use limits, and learns of revocations at its next feed read.",
+      "outcome": "Completed, refused or failed, for each command.",
+      "evidence": "Every command and its result, signed by the device."
+    }
+  },
+  {
+    "id": "storage",
+    "label": "Storage",
+    "status": "Proposed resource adapter",
+    "fields": {
+      "offer": "Backup space on a family member’s NAS.",
+      "request": "Your laptop asks to store tonight’s encrypted backup.",
+      "authorize": "Family members get a quota and a retention period.",
+      "admit": "Space is reserved for the backup.",
+      "enforce": "The storage adapter enforces the quota. Only you hold the encryption key.",
+      "outcome": "Completed, failed or cancelled.",
+      "evidence": "Each backup and restore, with the digest of what was stored."
+    }
+  },
+  {
+    "id": "files",
+    "label": "Files",
+    "status": "Connect, in development",
+    "fields": {
+      "offer": "A folder on your laptop, shared as a Space. Connect does this within one network today, in development.",
+      "request": "A family member’s phone asks to open a file in the Space.",
+      "authorize": "Your network’s authority checks their membership and the Space’s policy.",
+      "admit": "None.",
+      "enforce": "Your device serves only that Space, and only until the share expires.",
+      "outcome": "Allowed, or refused as busy, expired or denied.",
+      "evidence": "The access appears in Activity."
+    }
+  }
+]

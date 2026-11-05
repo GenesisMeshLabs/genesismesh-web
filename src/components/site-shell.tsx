@@ -32,16 +32,16 @@ function BrandLogo({ size, alt, priority }: { size: number; alt: string; priorit
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-canvas/90 backdrop-blur-xl">
-      <div className="site-container flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
+      <div className="site-container flex h-16 items-center justify-between gap-3">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
           <BrandLogo size={34} alt="Genesis Mesh" priority />
           <span className="text-sm font-semibold tracking-wide text-ink">Genesis Mesh</span>
         </Link>
         <DesktopNav />
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <a
             href={siteLinks.githubOrg}
-            className="hidden h-10 items-center gap-2 rounded-md border border-ink/20 bg-ink/[0.07] px-4 text-sm font-semibold text-ink transition hover:border-ink/40 hover:bg-ink/15 lg:inline-flex"
+            className="hidden h-10 items-center gap-2 rounded-md border border-ink/20 bg-ink/[0.07] px-4 text-sm font-semibold text-ink transition hover:border-ink/40 hover:bg-ink/15 xl:inline-flex"
             target="_blank"
             rel="noreferrer"
           >

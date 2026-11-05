@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowRight, Boxes, Code2, FileText, Network, Play, ShieldCheck } from "lucide-react";
 import { BrandIcon } from "@/components/brand-icons";
 import { ButtonLink, SectionIntro } from "@/components/ui";
-import { homeHubContent, howItWorksCta } from "@/content/pages";
+import { homeHubContent, howItWorksCta, visionCta } from "@/content/pages";
 
 const featureStrip = [
   { title: "Portable Trust", text: "Trust that travels across boundaries.", icon: ShieldCheck },
@@ -30,6 +30,12 @@ const hubCards = [
     href: howItWorksCta.href,
     text: howItWorksCta.description,
     icon: howItWorksCta.icon,
+  },
+  {
+    title: visionCta.title,
+    href: visionCta.href,
+    text: visionCta.description,
+    icon: visionCta.icon,
   },
   {
     title: "SDKs",
